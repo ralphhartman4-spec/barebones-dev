@@ -7,11 +7,12 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="assets/hartman-logo.png">
   <meta name="description" content="BareBones Developments builds streamlined, high-performance mobile apps for contractors and tradespeople.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <div class="container">
-      <img src="assets/logo.png" alt="BareBones Developments Logo" class="logo">
+      <img src="assets/hartman-logo.png" alt="BareBones Developments Logo" class="logo">
       <h1>BareBones Developments</h1>
     </div>
   </header>
@@ -19,13 +20,17 @@
   <section class="hero">
     <div class="container">
       <h2>Tools Built for the Field</h2>
-      <p>We create fast, reliable, no-nonsense mobile apps for contractors and tradespeople — focused on what matters: getting the job done.</p>
+      <p class="tagline">Fast. Reliable. No fluff.</p>
+      <p class="subtitle">We create mobile apps for contractors and tradespeople that focus on real work — accurate estimates, instant invoices, and nothing you don’t need.</p>
+
       <div class="apps">
         <div class="app-card">
           <h3>Hartman Estimate</h3>
-          <p>Professional estimating & invoicing app for electricians and contractors. Fast, accurate, and built for real work.</p>
-          <a href="#" class="btn">Coming Soon to Google Play</a>
-          <a href="#" class="btn apple">Coming Soon to App Store</a>
+          <p>Professional estimating & invoicing app for electricians and contractors. Built for speed, accuracy, and the job site.</p>
+          <div class="btn-group">
+            <a href="#" class="btn">Coming Soon — Google Play</a>
+            <a href="#" class="btn apple">Coming Soon — App Store</a>
+          </div>
         </div>
       </div>
     </div>
@@ -33,22 +38,32 @@
 
   <section class="about">
     <div class="container">
-      <h2>About BareBones</h2>
-      <p>BareBones Developments is an independent studio dedicated to building essential tools for people who build things. We strip away the fluff and deliver apps that are:</p>
-      <ul>
-        <li>Fast and responsive</li>
-        <li>Offline-first when possible</li>
-        <li>Designed for real-world use</li>
-        <li>No subscriptions. No bloat.</li>
-      </ul>
-      <p>We’re self-funded and independent — so we answer to users, not investors.</p>
+      <h2>We Build What Matters</h2>
+      <div class="features">
+        <div class="feature">
+          <h4>Essential Features Only</h4>
+          <p>No bloat. Just the tools you actually use.</p>
+        </div>
+        <div class="feature">
+          <h4>Works Offline</h4>
+          <p>Reliable even in basements, attics, and remote sites.</p>
+        </div>
+        <div class="feature">
+          <h4>One-Time Purchase</h4>
+          <p>Buy once. Own forever. No subscriptions.</p>
+        </div>
+        <div class="feature">
+          <h4>Independent</h4>
+          <p>Self-funded. We answer to users, not investors.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="contact" id="contact">
     <div class="container">
-      <h2>Contact Us</h2>
-      <p>Questions? Feedback? Want to say hi? We'd love to hear from you.</p>
+      <h2>Get in Touch</h2>
+      <p>Questions? Feedback? Just want to say hello? We’d love to hear from you.</p>
 
       <form action="https://formspree.io/f/mnjazaao" method="POST" class="contact-form">
         <input type="text" name="name" placeholder="Your Name" required>
@@ -58,7 +73,7 @@
       </form>
 
       <div class="success-message" id="success-message">
-        <p>✅ Message sent! Thanks — we'll get back to you soon.</p>
+        <p>✅ Thanks! Your message was sent — we'll reply soon.</p>
       </div>
     </div>
   </section>
@@ -71,21 +86,28 @@
   </footer>
 
   <script>
-    // Simple success message after submit
     const form = document.querySelector('.contact-form');
     const success = document.getElementById('success-message');
 
-    form.addEventListener('submit', function() {
+    form.addEventListener('submit', function(e) {
+      // Optional: disable button to prevent double submit
+      const button = form.querySelector('.submit-btn');
+      button.disabled = true;
+      button.textContent = 'Sending...';
+
       setTimeout(() => {
-        success.style.display = 'block';
+        success.style.opacity = '1';
+        success.style.transform = 'translateY(0)';
         form.reset();
+        button.disabled = false;
+        button.textContent = 'Send Message';
+
         setTimeout(() => {
-          success.style.display = 'none';
+          success.style.opacity = '0';
+          success.style.transform = 'translateY(20px)';
         }, 5000);
       }, 800);
     });
   </script>
 </body>
 </html>
-
-
